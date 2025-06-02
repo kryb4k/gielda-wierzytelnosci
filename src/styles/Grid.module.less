@@ -1,0 +1,101 @@
+@import "./variables/variables.less";
+
+.grid {
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    min-height: 200px;
+    padding: 0 50px;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    color: @primary-color;
+
+    th {
+      text-align: left;
+      font-weight: 600;
+      font-size: @font-size-base;
+      color: @accent-primary-color;
+      padding: 12px 8px;
+      border-bottom: 1px solid @white-accent-color;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 12px 8px;
+      border-bottom: 1px solid @accent-secondary-color;
+      white-space: nowrap;
+      color: @primary-color;
+      font-size: @font-size-big;
+      font-weight: 600;
+    }
+
+    thead th {
+      transition: background-color 0.3s ease;
+    }
+
+    thead th:hover {
+      background-color: @highlight-color;
+      cursor: pointer;
+    }
+
+    tbody tr {
+      transition: background-color 0.3s ease;
+    }
+
+    tbody tr:hover {
+      background-color: @highlight-color;
+      cursor: pointer;
+    }
+  }
+
+  &__loading,
+  &__no-data {
+    text-align: center;
+    padding: 2rem;
+    font-weight: bold;
+  }
+
+  &__loading {
+    color: @accent-primary-color;
+  }
+
+  &__no-data {
+    font-style: italic;
+    color: @accent-secondary-color;
+  }
+}
+
+@media (min-width: @breakpoint-md) {
+  .grid__container {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: @breakpoint-md) {
+  .grid__container {
+    padding: 10px 0;
+    justify-content: flex-start;
+    max-width: @breakpoint-md;
+    min-width: @breakpoint-sm;
+    overflow-x: auto;
+  }
+
+  .grid__table {
+    min-width: @breakpoint-md;
+    width: max-content;
+    padding: 10px 20px;
+  }
+
+  .grid__table th,
+  .grid__table td {
+    font-size: 10px;
+    padding: 4px 6px;
+    white-space: nowrap;
+  }
+}
